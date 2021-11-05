@@ -12,9 +12,10 @@ int[] array = new int[length];
 
 Write("Рандомный массив: \n");
 
-Create_array(array);
+Create_Random_Array(array);
 
-void Create_array(int[] array)                          //создаю первый рандомный массив
+
+void Create_Random_Array(int[] array)                          //создаю первый рандомный массив
 {
     int index = 0;
     while (index < length)
@@ -25,18 +26,23 @@ void Create_array(int[] array)                          //создаю перв�
     }
     WriteLine();
 }
-int idx = 0;
 int elem = 1;
 int max = array[0];
-while (idx < length - 1)                                //нахожу размерность второго массива
+Find_New_Array_Size(array, elem, max);
+int Find_New_Array_Size(int[] array, int elem, int max)
 {
-    if (max < array[idx + 1])
+    int idx = 0;
+    while (idx < length - 1)                                //нахожу размерность второго массива
     {
-        //Write($"{max}  ");
-        max = array[idx + 1];
-        elem++;
+        if (max < array[idx + 1])
+        {
+            //Write($"{max}  ");
+            max = array[idx + 1];
+            elem++;
+        }
+        idx++;
     }
-    idx++;
+    return(elem);
 }
 //Write($"{max}  ");
 int[] massiv1 = new int[elem];
@@ -56,7 +62,7 @@ while (idx_A < length - 1)                                  //записываю
 }
 idx_M = 0;
 Write("Новый массив по возрастанию: \n");
-while(idx_M < elem)                                         //печатаю получившийся массив         
+while (idx_M < elem)                                         //печатаю получившийся массив         
 {
     Write($"{massiv1[idx_M]}  ");
     idx_M++;
@@ -75,9 +81,9 @@ while (i < length)                                          //находим с�
 }
 WriteLine($"\n\nСумма элементов массива - {sum}");                                  // выводим на печать сумму
 
-sr_arifm = sum/length;
+sr_arifm = sum / length;
 WriteLine($"\n\nСреднее арифметическое - {sr_arifm}");
-idx = 0;
+int idx = 0;
 elem = 0;
 WriteLine("\n\nНовый массив с числами ниже среднего арифметического: ");
 while (idx < length)                                //нахожу размерность второго массива
@@ -119,7 +125,7 @@ while (idx < length)                                 //нахожу размер
     idx++;
 }
 
-int[] massiv3= new int[elem];
+int[] massiv3 = new int[elem];
 i = 0;
 j = 0;
 
@@ -134,7 +140,7 @@ while (i < length)                                  //записываем то�
     }
     i++;
 }
-if(j == 0)
+if (j == 0)
 {
     WriteLine("\n\nНечетные числа отсутсвуют");
 }
